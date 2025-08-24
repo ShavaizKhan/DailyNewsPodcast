@@ -1,0 +1,28 @@
+type User {
+  id: ID!
+  email: String!
+  PasswordHash: String!
+  preferences: Preferences
+}
+
+type Preferences {
+  country: String!
+  topic: String!
+}
+
+type Podcast {
+  date: String!
+  url: String!
+}
+
+type Query {
+  me: User!
+  podcast(date: String): Podcast!
+}
+
+
+type Mutation {
+  signup(email: String!, password: String!): String!
+  login(email: String!, password: String!): String!
+  updatePreferences(country: String!, topic: String!): Preferences!
+}
