@@ -6,6 +6,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"os"
 	"time"
 
 	"github.com/ShavaizKhan/DailyNewsPodcast/webapp-backend/graph/model"
@@ -112,8 +113,7 @@ func (r *queryResolver) Podcast(ctx context.Context, date *string) (*model.Podca
 		date = &now
 	}
 
-	// bucket := os.Getenv("S3_BUCKET")
-	bucket := "news-podcast-bucket"
+	bucket := os.Getenv("S3_BUCKET")
 	key := fmt.Sprintf("general_podcast_%s.mp3", *date)
 
 	cfg, err := config.LoadDefaultConfig(ctx, config.WithRegion("us-east-1"))

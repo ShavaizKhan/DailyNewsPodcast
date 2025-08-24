@@ -4,9 +4,11 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
+	"os"
 
 	"github.com/ShavaizKhan/DailyNewsPodcast/webapp-backend/graph/model"
 	_ "github.com/jackc/pgx/v5/stdlib"
+	"github.com/joho/godotenv"
 	_ "github.com/joho/godotenv/autoload"
 )
 
@@ -25,8 +27,8 @@ type PGStore struct {
 
 // NewPGStore creates a new PGStore and connects to the database.
 func NewPGStore(ctx context.Context) (*PGStore, error) {
-
-	connStr := "postgresql://Shavaizk17:W0rld_wide@podcastdb.cjmeyae2yntc.us-east-1.rds.amazonaws.com:5432/postgres"
+	godotenv.Load()
+	connStr := os.Getenv("DATABASE_URL")
 	if connStr == "" {
 		return nil, fmt.Errorf("DATABASE_URL environment variable is not set")
 	}

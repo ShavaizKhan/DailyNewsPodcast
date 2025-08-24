@@ -19,7 +19,7 @@ const authLink = new ApolloLink((operation, forward) => {
 });
 
 // Apollo Client
-export const client = new ApolloClient({
+export const apolloClient = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
