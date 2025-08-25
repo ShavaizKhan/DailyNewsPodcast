@@ -10,7 +10,7 @@ DailyNewsPodcast is a web application that automatically generates daily podcast
 - **Cloud Storage:**  
   Generated podcast episodes are stored in an AWS S3 bucket and served to users. User data is stored in an AWS RDS PostgreSQL database.
 
-- **Go Backend with GraphQL:**  
+- **Go Backend with GraphQL APIs:**  
   Handles API requests, user authentication (JWT-based), and podcast retrieval.
 
 - **User Login & Signup:**  
